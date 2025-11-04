@@ -1,0 +1,30 @@
+# Include documentation files
+include README.md
+include LICENSE
+include CITATION.cff
+include CHANGELOG.md
+include requirements.txt
+
+# Include the paper
+include Aletheion_Preprint___v4_0.pdf
+
+# Include examples
+recursive-include examples *.py
+
+# Include tests
+recursive-include tests *.py
+
+# Include documentation
+recursive-include docs *.md
+
+# Exclude build artifacts
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude .DS_Store
+global-exclude *.so
+global-exclude *.egg-info
+
+# Exclude version control
+global-exclude .git*
+global-exclude .hg*
