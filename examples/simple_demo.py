@@ -30,7 +30,8 @@ Scenario: A symbolic AGI maintains coherence while learning from observations
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 from src import q_metric, varo_update, epistemic_gate, check_quality_threshold
@@ -40,7 +41,7 @@ def print_header(title: str):
     """Print a formatted section header."""
     print(f"\n{'=' * 70}")
     print(f"  {title}")
-    print('=' * 70)
+    print("=" * 70)
 
 
 def demo_q_metric():
@@ -142,8 +143,10 @@ def demo_integrated_loop():
     q_min = 0.6
 
     print("Simulating 5 update steps toward a target state...")
-    print(f"Target: [{psi_target[0]:.2f}, {psi_target[1]:.2f}, "
-          f"{psi_target[2]:.2f}, {psi_target[3]:.2f}]")
+    print(
+        f"Target: [{psi_target[0]:.2f}, {psi_target[1]:.2f}, "
+        f"{psi_target[2]:.2f}, {psi_target[3]:.2f}]"
+    )
     print(f"Quality threshold: Q_min = {q_min}\n")
 
     for step in range(5):
@@ -162,9 +165,11 @@ def demo_integrated_loop():
         # Update state
         psi_state = psi_accepted
 
-        print(f"Step {step + 1}: Q = {q:.4f}  |  "
-              f"Backtracks: {n_bt}  |  "
-              f"State: [{psi_state[0]:.3f}, {psi_state[1]:.3f}, ...]")
+        print(
+            f"Step {step + 1}: Q = {q:.4f}  |  "
+            f"Backtracks: {n_bt}  |  "
+            f"State: [{psi_state[0]:.3f}, {psi_state[1]:.3f}, ...]"
+        )
 
     print("\n✓ System successfully converged while maintaining epistemic integrity")
 

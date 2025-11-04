@@ -30,7 +30,8 @@ Tests cover:
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 import pytest
@@ -67,7 +68,9 @@ class TestVARONormalization:
 
             psi_new = varo_update(psi, z, beta=0.5, gamma=0.9)
 
-            assert psi_new.shape == (dim,), f"Expected shape ({dim},), got {psi_new.shape}"
+            assert psi_new.shape == (
+                dim,
+            ), f"Expected shape ({dim},), got {psi_new.shape}"
 
 
 class TestAntiResonance:
@@ -85,8 +88,7 @@ class TestAntiResonance:
         expected_unnorm = gamma * psi + (1 - gamma) * z
         expected = expected_unnorm / np.linalg.norm(expected_unnorm)
 
-        assert np.allclose(psi_new, expected, atol=1e-6), \
-            "β=0 should give standard EMA"
+        assert np.allclose(psi_new, expected, atol=1e-6), "β=0 should give standard EMA"
 
     def test_varo_full_antiresonance_parallel(self):
         """Test VARO with β=1 (full anti-resonance) for parallel vectors."""
@@ -110,8 +112,9 @@ class TestAntiResonance:
         psi_new_full_ar = varo_update(psi, z, beta=1.0, gamma=0.9)
 
         # Both should be close since there's no parallel component to suppress
-        assert np.allclose(psi_new_no_ar, psi_new_full_ar, atol=1e-6), \
-            "Anti-resonance shouldn't affect orthogonal components"
+        assert np.allclose(
+            psi_new_no_ar, psi_new_full_ar, atol=1e-6
+        ), "Anti-resonance shouldn't affect orthogonal components"
 
     def test_varo_antiresonance_strength(self):
         """Test that increasing β increases suppression of parallel component."""
@@ -145,8 +148,9 @@ class TestTemporalInertia:
 
         # With γ=0, should just be normalized z (with no anti-resonance)
         expected = z / np.linalg.norm(z)
-        assert np.allclose(psi_new, expected, atol=1e-6), \
-            "γ=0 should replace state with new observation"
+        assert np.allclose(
+            psi_new, expected, atol=1e-6
+        ), "γ=0 should replace state with new observation"
 
     def test_varo_full_memory(self):
         """Test VARO with γ=1 (perfect memory, no update)."""
@@ -157,8 +161,9 @@ class TestTemporalInertia:
 
         # With γ=1, state should not change (normalized psi)
         expected = psi / np.linalg.norm(psi)
-        assert np.allclose(psi_new, expected, atol=1e-6), \
-            "γ=1 should keep current state unchanged"
+        assert np.allclose(
+            psi_new, expected, atol=1e-6
+        ), "γ=1 should keep current state unchanged"
 
     def test_varo_memory_interpolation(self):
         """Test that γ interpolates between old and new state."""
@@ -197,8 +202,12 @@ class TestLambdaMuConversion:
         expected_gamma = 1.0 - 1.0 / (1.0 + mu_ar)  # = 0.9
         expected_beta = 1.0 - 1.0 / (1.0 + lambda_ar + mu_ar)  # ≈ 0.909
 
-        assert abs(gamma - expected_gamma) < 1e-6, f"Expected γ={expected_gamma}, got {gamma}"
-        assert abs(beta - expected_beta) < 1e-6, f"Expected β={expected_beta}, got {beta}"
+        assert (
+            abs(gamma - expected_gamma) < 1e-6
+        ), f"Expected γ={expected_gamma}, got {gamma}"
+        assert (
+            abs(beta - expected_beta) < 1e-6
+        ), f"Expected β={expected_beta}, got {beta}"
 
     def test_lambda_mu_zero_values(self):
         """Test conversion with λ=0, μ=0."""
@@ -342,8 +351,9 @@ class TestVAROEdgeCases:
         assert abs(np.linalg.norm(psi_new_with_noise) - 1.0) < 1e-6
 
         # Results should be different due to noise
-        assert not np.allclose(psi_new_no_noise, psi_new_with_noise), \
-            "Noise should change output"
+        assert not np.allclose(
+            psi_new_no_noise, psi_new_with_noise
+        ), "Noise should change output"
 
     def test_varo_convergence(self):
         """Test that repeated VARO updates converge."""

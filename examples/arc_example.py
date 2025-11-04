@@ -38,7 +38,8 @@ The system must learn this rule through symbolic-neural interaction.
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 from src import q_metric, varo_update, epistemic_gate
@@ -100,7 +101,7 @@ def print_header(title: str):
     """Print a formatted section header."""
     print(f"\n{'=' * 70}")
     print(f"  {title}")
-    print('=' * 70)
+    print("=" * 70)
 
 
 def main():
@@ -168,9 +169,10 @@ def main():
 
     # Apply VARO update
     psi_updated_wrong = varo_update(
-        psi_hypothesis, z_wrong,
-        beta=0.5,    # Moderate anti-resonance
-        gamma=0.85   # High memory persistence
+        psi_hypothesis,
+        z_wrong,
+        beta=0.5,  # Moderate anti-resonance
+        gamma=0.85,  # High memory persistence
     )
 
     # Measure Q₂ (post-generation quality)
@@ -186,9 +188,11 @@ def main():
     print(f"\n  Quality threshold: Q_min = {q_min:.2f}")
 
     psi_gated_wrong, q_final_wrong, n_bt_wrong = epistemic_gate(
-        psi_hypothesis, psi_updated_wrong, ground_truth_rule,
+        psi_hypothesis,
+        psi_updated_wrong,
+        ground_truth_rule,
         q_min=q_min,
-        max_backtrack=8
+        max_backtrack=8,
     )
 
     print(f"  Backtracks performed: {n_bt_wrong}")
@@ -225,11 +229,7 @@ def main():
     print(f"\n  Q₁ (pre-generation): {q1_correct:.4f}")
 
     # Apply VARO update
-    psi_updated_correct = varo_update(
-        psi_hypothesis, z_correct,
-        beta=0.5,
-        gamma=0.85
-    )
+    psi_updated_correct = varo_update(psi_hypothesis, z_correct, beta=0.5, gamma=0.85)
 
     # Measure Q₂ (post-generation quality)
     q2_correct = q_metric(psi_updated_correct, ground_truth_rule)
@@ -243,9 +243,11 @@ def main():
     print(f"\n  Quality threshold: Q_min = {q_min:.2f}")
 
     psi_gated_correct, q_final_correct, n_bt_correct = epistemic_gate(
-        psi_hypothesis, psi_updated_correct, ground_truth_rule,
+        psi_hypothesis,
+        psi_updated_correct,
+        ground_truth_rule,
         q_min=q_min,
-        max_backtrack=8
+        max_backtrack=8,
     )
 
     print(f"  Backtracks performed: {n_bt_correct}")

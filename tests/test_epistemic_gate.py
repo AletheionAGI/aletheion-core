@@ -29,7 +29,8 @@ Tests cover:
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 import pytest
@@ -92,9 +93,13 @@ class TestCheckQualityThreshold:
             assert abs(q - q_actual) < 1e-6, "Should return same Q value"
 
             if q >= q_min:
-                assert gate_open is True, f"Gate should be open for Q={q} >= Q_min={q_min}"
+                assert (
+                    gate_open is True
+                ), f"Gate should be open for Q={q} >= Q_min={q_min}"
             else:
-                assert gate_open is False, f"Gate should be closed for Q={q} < Q_min={q_min}"
+                assert (
+                    gate_open is False
+                ), f"Gate should be closed for Q={q} < Q_min={q_min}"
 
     def test_gate_returns_quality_value(self):
         """Test that gate returns correct quality value."""
@@ -120,8 +125,9 @@ class TestEpistemicGate:
 
         assert n_bt == 0, "Should not backtrack for good state"
         assert q >= 0.5, "Quality should meet threshold"
-        assert np.allclose(accepted, proposed / np.linalg.norm(proposed)), \
-            "Should accept proposed state"
+        assert np.allclose(
+            accepted, proposed / np.linalg.norm(proposed)
+        ), "Should accept proposed state"
 
     def test_gate_backtracks_bad_state(self):
         """Test that gate backtracks when proposed state has low quality."""
@@ -155,8 +161,9 @@ class TestEpistemicGate:
 
         # If can't meet threshold, should return current state
         if q < 0.9:
-            assert np.allclose(accepted, current / np.linalg.norm(current)), \
-                "Should return current state if threshold can't be met"
+            assert np.allclose(
+                accepted, current / np.linalg.norm(current)
+            ), "Should return current state if threshold can't be met"
 
     def test_gate_backtrack_interpolation(self):
         """Test that backtracking interpolates between current and proposed."""
@@ -169,10 +176,12 @@ class TestEpistemicGate:
         # Accepted should be a mix of current and proposed
         # Check that it's not exactly either one (unless n_bt=0)
         if n_bt > 0:
-            assert not np.allclose(accepted, current / np.linalg.norm(current)), \
-                "Should not be exactly current (backtracked)"
-            assert not np.allclose(accepted, proposed / np.linalg.norm(proposed)), \
-                "Should not be exactly proposed (backtracked)"
+            assert not np.allclose(
+                accepted, current / np.linalg.norm(current)
+            ), "Should not be exactly current (backtracked)"
+            assert not np.allclose(
+                accepted, proposed / np.linalg.norm(proposed)
+            ), "Should not be exactly proposed (backtracked)"
 
     def test_gate_backtrack_factor(self):
         """Test that backtrack_factor controls step size reduction."""
@@ -186,9 +195,7 @@ class TestEpistemicGate:
 
         for factor in factors:
             accepted, q, n_bt = epistemic_gate(
-                current, proposed, target,
-                q_min=0.7,
-                backtrack_factor=factor
+                current, proposed, target, q_min=0.7, backtrack_factor=factor
             )
             results.append((accepted, q, n_bt))
 
@@ -205,12 +212,12 @@ class TestEpistemicGate:
             proposed = np.random.randn(3)
             target = np.random.randn(3)
 
-            accepted, q, n_bt = epistemic_gate(
-                current, proposed, target, q_min=0.5
-            )
+            accepted, q, n_bt = epistemic_gate(current, proposed, target, q_min=0.5)
 
             norm = np.linalg.norm(accepted)
-            assert abs(norm - 1.0) < 1e-6, f"Output should be normalized, got norm={norm}"
+            assert (
+                abs(norm - 1.0) < 1e-6
+            ), f"Output should be normalized, got norm={norm}"
 
     def test_gate_meets_threshold(self):
         """Test that gate always returns state meeting threshold."""
@@ -225,9 +232,7 @@ class TestEpistemicGate:
                 target = np.random.randn(4)
 
                 accepted, q, n_bt = epistemic_gate(
-                    current, proposed, target,
-                    q_min=q_min,
-                    max_backtrack=10
+                    current, proposed, target, q_min=q_min, max_backtrack=10
                 )
 
                 # Verify returned Q matches actual Q
@@ -235,8 +240,9 @@ class TestEpistemicGate:
                 assert abs(q - q_actual) < 1e-6, "Returned Q should match actual"
 
                 # Should meet threshold (or be current state if impossible)
-                assert q >= q_min or np.allclose(accepted, current / np.linalg.norm(current)), \
-                    f"Should meet threshold Q_min={q_min} or return current state"
+                assert q >= q_min or np.allclose(
+                    accepted, current / np.linalg.norm(current)
+                ), f"Should meet threshold Q_min={q_min} or return current state"
 
 
 class TestEpistemicGateEdgeCases:
@@ -251,8 +257,9 @@ class TestEpistemicGateEdgeCases:
 
         assert n_bt == 0, "Should not backtrack for identical states"
         assert abs(q - 1.0) < 1e-6, "Quality should be 1.0 for identical to target"
-        assert np.allclose(accepted, state / np.linalg.norm(state)), \
-            "Should return the state"
+        assert np.allclose(
+            accepted, state / np.linalg.norm(state)
+        ), "Should return the state"
 
     def test_gate_zero_threshold(self):
         """Test gate with Q_min=0 (always accept)."""
@@ -263,8 +270,9 @@ class TestEpistemicGateEdgeCases:
         accepted, q, n_bt = epistemic_gate(current, proposed, target, q_min=0.0)
 
         assert n_bt == 0, "Should not backtrack with Q_min=0"
-        assert np.allclose(accepted, proposed / np.linalg.norm(proposed)), \
-            "Should accept proposed state"
+        assert np.allclose(
+            accepted, proposed / np.linalg.norm(proposed)
+        ), "Should accept proposed state"
 
     def test_gate_impossible_threshold(self):
         """Test gate with impossible threshold (Q_min=1.0, imperfect state)."""
@@ -273,17 +281,16 @@ class TestEpistemicGateEdgeCases:
         target = np.array([1.0, 0.0, 0.0])
 
         accepted, q, n_bt = epistemic_gate(
-            current, proposed, target,
-            q_min=1.0,
-            max_backtrack=5
+            current, proposed, target, q_min=1.0, max_backtrack=5
         )
 
         # Should return current state (safest option)
         q_current = q_metric(current, target)
         if q_current < 1.0:
             # If even current doesn't meet threshold, should still return current
-            assert np.allclose(accepted, current / np.linalg.norm(current)), \
-                "Should return current state when threshold can't be met"
+            assert np.allclose(
+                accepted, current / np.linalg.norm(current)
+            ), "Should return current state when threshold can't be met"
 
     def test_gate_single_dimension(self):
         """Test gate with 1D vectors."""
@@ -382,7 +389,9 @@ class TestEpistemicGateConsistency:
         # Generally, higher thresholds should require more (or equal) backtracks
         # (not always strictly monotonic due to exponential backoff)
         # Just verify reasonable behavior
-        assert all(n >= 0 for n in backtrack_counts), "All should have non-negative backtracks"
+        assert all(
+            n >= 0 for n in backtrack_counts
+        ), "All should have non-negative backtracks"
 
 
 class TestIntegrationScenarios:
@@ -401,10 +410,14 @@ class TestIntegrationScenarios:
 
         for step in range(10):
             # Simulate update (moving toward target with noise)
-            proposed = 0.7 * psi_target + 0.3 * psi_state + np.random.normal(0, 0.1, size=4)
+            proposed = (
+                0.7 * psi_target + 0.3 * psi_state + np.random.normal(0, 0.1, size=4)
+            )
 
             # Apply gate
-            accepted, q, n_bt = epistemic_gate(psi_state, proposed, psi_target, q_min=q_min)
+            accepted, q, n_bt = epistemic_gate(
+                psi_state, proposed, psi_target, q_min=q_min
+            )
 
             total_backtracks += n_bt
 
