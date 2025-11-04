@@ -230,7 +230,7 @@ For **production deployments**, the full **AletheiaEngine** platform offers:
 - 🛡️ **Production support & SLAs**
 
 **Interested in commercial licensing?**
-Contact: **contact@aletheionagi.com**
+Contact: **contact@alethea.tech**
 
 ---
 
@@ -256,7 +256,7 @@ Special thanks to the research community exploring symbolic-neural integration, 
 
 - **Research questions:** Open a GitHub Issue
 - **Paper discussions:** GitHub Discussions
-- **Commercial inquiries:** licensing@aletheionagi.com
+- **Commercial inquiries:** contact@alethea.tech
 - **Repository:** https://github.com/AletheionAGI/aletheion-core
 
 ---
