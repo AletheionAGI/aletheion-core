@@ -4,7 +4,7 @@ cff-version: 1.2.0
    authors:
      - family-names: Muniz
        given-names: Felipe M.
-       email: contact@aletheionagi.com
+       email: contact@alethea.tech
    doi: 10.13140/RG.2.2.29925.87527
    url: "https://github.com/AletheionAGI/aletheion-core"
    license: AGPL-3.0
