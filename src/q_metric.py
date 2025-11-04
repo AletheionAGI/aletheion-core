@@ -33,8 +33,10 @@ Formula: Q(ψ_s, ψ_t) = (1 + cos(ψ_s, ψ_t)) / 2
 """
 
 from __future__ import annotations
-import numpy as np
+
 from typing import Union
+
+import numpy as np
 
 
 def normalize_vector(vector: np.ndarray, eps: float = 1e-12) -> np.ndarray:

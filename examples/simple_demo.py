@@ -28,13 +28,14 @@ This demo shows how the three core components work together:
 Scenario: A symbolic AGI maintains coherence while learning from observations
 """
 
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
-from src import q_metric, varo_update, epistemic_gate, check_quality_threshold
+
+from src import check_quality_threshold, epistemic_gate, q_metric, varo_update
 
 
 def print_header(title: str):
