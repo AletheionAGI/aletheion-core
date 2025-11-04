@@ -40,8 +40,10 @@ Where:
 """
 
 from __future__ import annotations
-import numpy as np
+
 from typing import Tuple
+
+import numpy as np
 
 from .q_metric import normalize_vector
 

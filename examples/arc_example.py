@@ -36,13 +36,14 @@ Output grid: [2, 2, 0]  (rule: multiply non-zero elements by 2)
 The system must learn this rule through symbolic-neural interaction.
 """
 
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
-from src import q_metric, varo_update, epistemic_gate
+
+from src import epistemic_gate, q_metric, varo_update
 
 
 def encode_rule(rule_description: str, dim: int = 16) -> np.ndarray:

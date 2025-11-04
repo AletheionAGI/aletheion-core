@@ -30,9 +30,9 @@ This educational release contains:
 - Epistemic gating: Quality threshold enforcement
 """
 
-from .q_metric import q_metric, cosine_similarity
-from .varo import varo_update, normalize_vector
-from .epistemic_gate import epistemic_gate, check_quality_threshold
+from .epistemic_gate import check_quality_threshold, epistemic_gate
+from .q_metric import cosine_similarity, q_metric
+from .varo import normalize_vector, varo_update
 
 __version__ = "1.0.0-edu"
 __all__ = [

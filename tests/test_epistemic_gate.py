@@ -27,13 +27,14 @@ Tests cover:
 - Edge cases and boundary conditions
 """
 
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 import pytest
+
 from src.epistemic_gate import check_quality_threshold, epistemic_gate
 from src.q_metric import q_metric
 

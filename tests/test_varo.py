@@ -28,14 +28,15 @@ Tests cover:
 - Parameter conversion (λ, μ → β, γ)
 """
 
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 import pytest
-from src.varo import varo_update, lambda_mu_to_beta_gamma
+
+from src.varo import lambda_mu_to_beta_gamma, varo_update
 
 
 class TestVARONormalization:

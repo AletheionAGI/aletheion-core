@@ -28,14 +28,15 @@ Tests cover:
 - Edge cases (zero vectors, different dimensionalities)
 """
 
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 import pytest
-from src.q_metric import q_metric, cosine_similarity, normalize_vector
+
+from src.q_metric import cosine_similarity, normalize_vector, q_metric
 
 
 class TestQMetric:

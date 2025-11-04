@@ -24,19 +24,20 @@ Run with: python -m pytest tests/test_basic.py
 Or simply: python tests/test_basic.py
 """
 
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
+
 from src import (
-    q_metric,
-    cosine_similarity,
-    varo_update,
     check_quality_threshold,
+    cosine_similarity,
     epistemic_gate,
     normalize_vector,
+    q_metric,
+    varo_update,
 )
 
 
