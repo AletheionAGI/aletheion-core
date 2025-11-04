@@ -1,7 +1,7 @@
 # Aletheion Core - Educational Release
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Paper](https://img.shields.io/badge/Paper-Preprint-orange.svg)](https://github.com/AletheionAGI/aletheion-core/blob/main/Aletheion_Preprint___v4_0.pdf)
+[![Paper](https://img.shields.io/badge/Paper-Preprint-orange.svg)](https://github.com/AletheionAGI/aletheion-core/Aletheion_Preprint___v4_0.pdf)
 
 **Aletheion Core** is an educational implementation of the semi-symbolic coherence monitoring system described in the paper:
 
@@ -125,7 +125,7 @@ print(f"Backtracking steps: {backtracks}")
 
 ## 📖 Paper & Citation
 
-**Full Paper:** [Aletheion_Preprint_v4_0.pdf](https://github.com/AletheionAGI/aletheion-core/blob/main/Aletheion_Preprint___v4_0.pdf)
+**Full Paper:** [Aletheion_Preprint_v4_0.pdf](https://github.com/AletheionAGI/aletheion-core/Aletheion_Preprint___v4_0.pdf)
 
 If you use this code in your research, please cite:
 
