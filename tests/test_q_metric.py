@@ -30,7 +30,8 @@ Tests cover:
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 import pytest
@@ -80,7 +81,9 @@ class TestQMetric:
 
         for a, b in test_cases:
             q = q_metric(a, b)
-            assert abs(q - 0.5) < 1e-6, f"Expected Q=0.5 for orthogonal vectors, got {q}"
+            assert (
+                abs(q - 0.5) < 1e-6
+            ), f"Expected Q=0.5 for orthogonal vectors, got {q}"
 
     def test_q_metric_opposite_vectors(self):
         """Test Q metric returns ~0.0 for opposite vectors."""
@@ -121,9 +124,10 @@ class TestQMetric:
         q_scaled_b = q_metric(a, 0.1 * b)
         q_scaled_both = q_metric(5 * a, 2 * b)
 
-        assert abs(q_original - q_scaled_a) < 1e-10, "Q should be scale invariant"
-        assert abs(q_original - q_scaled_b) < 1e-10, "Q should be scale invariant"
-        assert abs(q_original - q_scaled_both) < 1e-10, "Q should be scale invariant"
+        # Use appropriate tolerance for float32 precision (~1e-7)
+        assert abs(q_original - q_scaled_a) < 1e-6, "Q should be scale invariant"
+        assert abs(q_original - q_scaled_b) < 1e-6, "Q should be scale invariant"
+        assert abs(q_original - q_scaled_both) < 1e-6, "Q should be scale invariant"
 
     def test_q_metric_different_dimensions_handled(self):
         """Test that Q metric handles vectors that can be flattened."""
@@ -231,14 +235,18 @@ class TestNormalizeVector:
         normalized = normalize_vector(vec)
 
         expected = np.array([0.6, 0.8])
-        assert np.allclose(normalized, expected), f"Expected {expected}, got {normalized}"
+        assert np.allclose(
+            normalized, expected
+        ), f"Expected {expected}, got {normalized}"
 
     def test_normalize_already_normalized(self):
         """Test that normalizing a unit vector returns the same vector."""
         vec = np.array([1.0, 0.0, 0.0])
         normalized = normalize_vector(vec)
 
-        assert np.allclose(vec, normalized), "Normalizing unit vector should be identity"
+        assert np.allclose(
+            vec, normalized
+        ), "Normalizing unit vector should be identity"
 
     def test_normalize_zero_vector(self):
         """Test that normalizing zero vector returns zero vector."""
@@ -262,7 +270,9 @@ class TestNormalizeVector:
         normalized = normalize_vector(vec)
 
         norm = np.linalg.norm(normalized)
-        assert abs(norm - 1.0) < 1e-6, "Should create unit vector with negative components"
+        assert (
+            abs(norm - 1.0) < 1e-6
+        ), "Should create unit vector with negative components"
 
         expected = np.array([-0.6, -0.8])
         assert np.allclose(normalized, expected)
@@ -327,7 +337,9 @@ class TestQMetricEdgeCases:
 
         q = q_metric(a, b)
         # Should still recognize as identical direction
-        assert abs(q - 1.0) < 1e-6 or abs(q - 0.5) < 1e-6  # Either identical or zero-like
+        assert (
+            abs(q - 1.0) < 1e-6 or abs(q - 0.5) < 1e-6
+        )  # Either identical or zero-like
 
     def test_q_metric_mixed_signs(self):
         """Test Q metric with mixed positive/negative values."""
@@ -335,7 +347,9 @@ class TestQMetricEdgeCases:
         b = np.array([1.0, -1.0, 1.0])
 
         q = q_metric(a, b)
-        assert abs(q - 1.0) < 1e-6, "Identical vectors should give Q=1 regardless of signs"
+        assert (
+            abs(q - 1.0) < 1e-6
+        ), "Identical vectors should give Q=1 regardless of signs"
 
 
 if __name__ == "__main__":

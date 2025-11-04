@@ -26,7 +26,8 @@ Or simply: python tests/test_basic.py
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 import numpy as np
 from src import (
@@ -141,8 +142,9 @@ def test_epistemic_gate_accepts_good_state():
     assert n_bt == 0, "Should not backtrack for good state"
     assert q >= 0.5, "Quality should meet threshold"
     # Accepted should be close to proposed
-    assert np.allclose(accepted, proposed / np.linalg.norm(proposed)), \
-        "Should accept proposed state"
+    assert np.allclose(
+        accepted, proposed / np.linalg.norm(proposed)
+    ), "Should accept proposed state"
     print("✓ Epistemic gate: accepts good state")
 
 

@@ -130,11 +130,30 @@ def epistemic_gate(
     psi_curr = np.asarray(psi_current, dtype=np.float32).reshape(-1)
     psi_prop = np.asarray(psi_proposed, dtype=np.float32).reshape(-1)
 
+    # Normalize current state
+    norm_curr = np.linalg.norm(psi_curr)
+    if norm_curr > 1e-12:
+        psi_curr = psi_curr / norm_curr
+
+    # Normalize proposed state
+    norm_prop = np.linalg.norm(psi_prop)
+    if norm_prop > 1e-12:
+        psi_prop = psi_prop / norm_prop
+
+    # Get quality of current state to prevent excessive quality drops
+    _, q_current = check_quality_threshold(psi_curr, psi_target, q_min)
+    # Don't accept states that drop quality by more than 10% from current
+    # Only enforce this when q_min is reasonably high (> 0.5)
+    if q_min > 0.5:
+        effective_q_min = max(q_min, q_current * 0.9)
+    else:
+        effective_q_min = q_min
+
     # Check if proposed state passes gate
-    gate_open, quality = check_quality_threshold(psi_prop, psi_target, q_min)
+    gate_open, quality = check_quality_threshold(psi_prop, psi_target, effective_q_min)
 
     if gate_open:
-        # Gate is open, accept proposed state
+        # Gate is open, accept proposed state (already normalized)
         return psi_prop, quality, 0
 
     # Gate is closed, perform backtracking
@@ -155,7 +174,9 @@ def epistemic_gate(
             psi_candidate = psi_candidate / norm
 
         # Check if backtracked state passes gate
-        gate_open, quality = check_quality_threshold(psi_candidate, psi_target, q_min)
+        gate_open, quality = check_quality_threshold(
+            psi_candidate, psi_target, effective_q_min
+        )
 
         if gate_open:
             return psi_candidate, quality, num_backtracks
