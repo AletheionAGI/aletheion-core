@@ -1,0 +1,55 @@
+NOTICE - Aletheion Core
+========================
+
+This software is developed and maintained by Felipe Maya Muniz under AletheionAGI.
+
+ATTRIBUTION
+-----------
+When using this software, you must provide appropriate credit:
+
+"This software uses Aletheion Core, developed by Felipe Maya Muniz (AletheionAGI)"
+
+THIRD-PARTY NOTICES
+-------------------
+This project may include third-party open source software components.
+Each component is subject to its own license terms. See requirements.txt
+or package.json for a list of dependencies.
+
+COPYRIGHT NOTICE
+----------------
+Copyright (c) 2024-2025 Felipe Maya Muniz
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+TRADEMARKS
+----------
+"Aletheion", "AletheionAGI", and related marks are trademarks of Felipe Maya Muniz.
+
+MODIFICATIONS
+-------------
+If you modify this software and distribute your modifications, you must:
+1. Clearly mark your modifications as such
+2. Preserve all original copyright and attribution notices
+3. Include this NOTICE file
+4. Comply with AGPL-3.0-or-later license terms
+
+PROPRIETARY COMPONENTS
+----------------------
+Some components of this software are proprietary and confidential.
+These are clearly marked with "PROPRIETARY AND CONFIDENTIAL" headers.
+Use of these components requires explicit permission.
+
+CONTACT
+-------
+For questions about usage, licensing, or attribution:
+- Author: Felipe Maya Muniz
+- Email: 67922105+gnai-creator@users.noreply.github.com
+- GitHub: https://github.com/gnai-creator
+
+ACKNOWLEDGMENTS
+---------------
+This project builds upon ideas from the broader AI safety and alignment community.
+
+---
+
+Generated with Aletheion Core
+Copyright (c) 2024-2025 Felipe Maya Muniz / AletheionAGI

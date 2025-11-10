@@ -1,0 +1,99 @@
+d9b5f473b213c43eefc74dc3e0de02ed452034b5
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 05:56:46 -0300
+Initial commit
+
+77b9ce812b917f766a5ccdb4b1e8fca1a3f7b529
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:49:31 -0300
+Add educational release of Aletheion Core with core components and tests
+
+83af37ca4e84f3db3c027bbb1c55e81dad7343f3
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:50:49 -0300
+Update README.md
+
+bd0e882dfa7a69ad219025a1252d223170560285
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:54:01 -0300
+Implement Aletheion Core Educational Release
+
+8642ec0e5f78cff02d96216517b7bd418a05920b
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:54:03 -0300
+Merge branch 'main' of https://github.com/AletheionAGI/aletheion-core
+
+751378a12f715e819f0d792931ecf903d2086398
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:55:05 -0300
+Fix broken links in README.md for paper references
+
+91419926fe54aaf664c4a0ab76f324253aae8102
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:56:21 -0300
+Refactor code structure for improved readability and maintainability
+
+9838866671ff10899a599fc9b65d9c6944e60a04
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 06:57:17 -0300
+Fix paper link in README.md to point to the correct URL
+
+21b88cd5ca5a14ebfbeaf3ee5dbe67a28207b685
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:02:07 -0300
+Add numpy and typing-extensions to requirements
+
+835247b74d448bcfbec1e618911c62d4deb95f1f
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:03:34 -0300
+Add setup.py for Aletheion Core package
+
+2d7e65fc9d13360df01afcb7aa3fb63b4aa61e02
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:05:44 -0300
+Add CITATION.cff for software citation details
+
+d9bdb87e12feb7ed9258a445996887d9f8908068
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:06:31 -0300
+Update author email and release date in CITATION.cff
+
+695934e3250569e4b8342e561747009de31f17e8
+Claude <noreply@anthropic.com>
+2025-11-04 10:22:07 +0000
+Add professional packaging files and comprehensive documentation
+
+3d6bc43adf73bb7c07fdae3d2423df00e53c344b
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:26:20 -0300
+Merge pull request #1 from AletheionAGI/claude/add-professional-packaging-files-011CUnfZxCYx9FyRns4pWQeX
+
+4253266c3886272863a822ea3eddf48a27a37e28
+Claude <noreply@anthropic.com>
+2025-11-04 10:33:01 +0000
+Fix code formatting and failing tests
+
+a3adc0638b141c9c5b2e82da3afe9d645f646196
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:38:53 -0300
+Merge pull request #2 from AletheionAGI/claude/fix-code-formatting-and-tests-011CUngxieTzraqYvBoXrJGV
+
+602ca2b4b9efd754e54aa52ab2aa5e97825d59ca
+Claude <noreply@anthropic.com>
+2025-11-04 10:40:20 +0000
+Fix import sorting in all Python files
+
+e101c85ff1d8d18e224cebe069647b572f265911
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 07:48:05 -0300
+Merge pull request #3 from AletheionAGI/claude/fix-import-sorting-011CUnhtpEaH6KUoYNczNQET
+
+94f702ce521d92c0db03d60c749ec7ee30168ed0
+Claude <noreply@anthropic.com>
+2025-11-04 11:50:43 +0000
+Update contact emails to contact@alethea.tech
+
+5f0941d1a685558cad283829d80332a75affe96a
+Felipe Maya Muniz <67922105+gnai-creator@users.noreply.github.com>
+2025-11-04 10:45:25 -0300
+Merge pull request #4 from AletheionAGI/claude/update-contact-email-011CUnoF6eCaFAHWtRSK8JC2

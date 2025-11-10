@@ -1,0 +1,54 @@
+COPYRIGHT NOTICE
+================
+
+Project: Aletheion Core
+Copyright Holder: Felipe Maya Muniz
+Organization: AletheionAGI
+Copyright Years: 2024-2025
+
+CONTACT INFORMATION
+-------------------
+Author: Felipe Maya Muniz
+Email: 67922105+gnai-creator@users.noreply.github.com
+GitHub: https://github.com/gnai-creator
+Organization: AletheionAGI
+
+INTELLECTUAL PROPERTY RIGHTS
+-----------------------------
+All rights reserved. This project contains both open source and proprietary components:
+
+1. OPEN SOURCE COMPONENTS (AGPL-3.0-or-later)
+   - Core library code
+   - Public APIs
+   - Examples and documentation
+   - Test suites
+
+2. PROPRIETARY COMPONENTS (All Rights Reserved)
+   - Level 3 security implementations
+   - Advanced algorithms and optimizations
+   - Internal security mechanisms
+   - Proprietary training methodologies
+
+LICENSE
+-------
+Open source components are licensed under AGPL-3.0-or-later.
+See LICENSE file for complete terms.
+
+Proprietary components are confidential and unauthorized copying,
+distribution, or use is strictly prohibited.
+
+ATTRIBUTION REQUIREMENTS
+------------------------
+When using or distributing this software, you must:
+1. Preserve all copyright notices
+2. Include this COPYRIGHT file
+3. Include the LICENSE file
+4. Maintain SPDX identifiers in source files
+5. Provide attribution as specified in NOTICE file
+
+For questions about licensing or usage rights, please contact:
+Felipe Maya Muniz (67922105+gnai-creator@users.noreply.github.com)
+
+---
+
+Copyright (c) 2024-2025 Felipe Maya Muniz. All rights reserved.
