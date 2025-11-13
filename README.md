@@ -206,7 +206,7 @@ AletheionGuard-Pypi is dual-licensed under:
 - **GNU AGPL-3.0** – for open source and non-commercial use.
 - **Aletheion Commercial License** – for proprietary or commercial use.
 
-Commercial use **requires a paid license** from Alethea Tech.
+Commercial use **requires a paid license** from AletheionAGI
 For details, contact [contact@aletheionagi.com](mailto:contact@aletheionagi.com).
 
 
@@ -264,4 +264,5 @@ Special thanks to the research community exploring symbolic-neural integration, 
 ---
 
 **Aletheion Core** - Truth as an asymptotic horizon 🜂
+
 
