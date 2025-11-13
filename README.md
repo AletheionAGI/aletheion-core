@@ -199,21 +199,16 @@ This creates a system that can explore conceptual spaces while maintaining coher
 
 ---
 
-## 📜 License
+## License
 
-**GNU Affero General Public License v3.0 (AGPL-3.0)**
+AletheionGuard-Pypi is dual-licensed under:
 
-This educational release is free and open source software. You are free to:
-- ✅ Use it for research and education
-- ✅ Modify and extend it
-- ✅ Share your improvements
+- **GNU AGPL-3.0** – for open source and non-commercial use.
+- **Aletheion Commercial License** – for proprietary or commercial use.
 
-**Requirements:**
-- Any modifications must also be released under AGPL-3.0
-- Network use requires source code disclosure
-- Attribution to original author
+Commercial use **requires a paid license** from Alethea Tech.
+For details, contact [contact@aletheionagi.com](mailto:contact@aletheionagi.com).
 
-See [LICENSE](./LICENSE) for full terms.
 
 ---
 
@@ -269,3 +264,4 @@ Special thanks to the research community exploring symbolic-neural integration, 
 ---
 
 **Aletheion Core** - Truth as an asymptotic horizon 🜂
+
