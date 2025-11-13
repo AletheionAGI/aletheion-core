@@ -3,7 +3,7 @@
 _Last updated: 2025-05-01_
 
 ## 1. Grant of License
-aletheion-llm ("Licensor") grants you ("Licensee") a non-exclusive, non-transferable, worldwide license to use, reproduce, and distribute the aletheion-llm software (the "Software") in compiled or object code form as part of Licensee products and services, provided that **any commercial use of the Software requires the purchase of a valid commercial license** from Licensor.  
+aletheion-core ("Licensor") grants you ("Licensee") a non-exclusive, non-transferable, worldwide license to use, reproduce, and distribute the aletheion-core software (the "Software") in compiled or object code form as part of Licensee products and services, provided that **any commercial use of the Software requires the purchase of a valid commercial license** from Licensor.  
 Non-commercial use (e.g., personal, educational, research, or internal evaluation) is permitted without payment.
 
 This license removes the copyleft obligations of the GNU Affero General Public License version 3 ("AGPL") for Licensees who have obtained a valid commercial license from the Licensor.
@@ -50,3 +50,4 @@ To obtain or renew a commercial license, contact: contact@aletheionagi.com.
 Custom enterprise terms are available upon request.
 
 By using the Software under this commercial license, Licensee agrees to the terms above.
+
